@@ -1,0 +1,29 @@
+<html>
+	<head>
+	<title>	AMMW App By Amandeep </title>
+	<style>
+		* { font-size:130%; }
+		body { background-color:azure; }
+		h1 { background-color:black;color:white;width:55%; border-radius:30px; }
+	</style>
+	</head>
+
+	<body>
+	<center>
+		<h1> Automatic Motivational Message App </h1>
+		<h2 id="ans"></h2>
+		<script>
+			function getmsg() {
+			let ans = document.getElementById("ans");
+			let url = "https://api.quotable.io/random";
+			fetch(url)
+			.then(res => res.json())
+			.then(data => ans.innerHTML = data.content + " ~" + data.author)
+			.catch(err => ans.innerHTML = "issue : " + err);
+		}
+		setInterval(getmsg, 10000);
+		</script>
+	</center>
+	</body>
+
+</html>
